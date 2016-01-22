@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour {
 	private bool grounded;
 	private Rigidbody rb;
 
-	void Start (){
+	void Start () {
 
 		// rigid body used for in-engine physics 
 		rb = GetComponent<Rigidbody> ();
