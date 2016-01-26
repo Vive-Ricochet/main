@@ -8,6 +8,10 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField] private float jump  = 5;   // player intitial jump velocity
     [SerializeField] private float rotationSpeed = 100; // player rotation speed
 
+    public string jumpButton = "Jump_p1";
+    public string horizontalCtrl = "Horizontal_p1";
+    public string verticalCtrl = "Vertical_p1";
+
 
 	// private fields
 	private bool grounded;
@@ -36,13 +40,13 @@ public class PlayerMovement : MonoBehaviour {
 
 		// apply input to relative movement velocity vector
 		Vector3 newVel = Vector3.zero;
-		newVel += Input.GetAxis("Horizontal") * camRight * speed;
-		newVel += Input.GetAxis("Vertical") * camDir * speed;
+		newVel += Input.GetAxis(horizontalCtrl) * camRight * speed;
+		newVel += Input.GetAxis(verticalCtrl) * camDir * speed;
 
 		// check input for "Jump" and execute if grounded
-		if ((Input.GetAxis ("Jump") == 1) && grounded) { 
+		if ((Input.GetAxis (jumpButton) == 1) && grounded) { 
 			// shoot velocity upwards. 
-			rb.velocity = new Vector3 (0.0f, Input.GetAxis ("Jump") * jump, 0.0f);
+			rb.velocity = new Vector3 (0.0f, Input.GetAxis (jumpButton) * jump, 0.0f);
 		}
 
 		// apply new velocity
