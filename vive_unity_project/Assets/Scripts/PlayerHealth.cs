@@ -48,6 +48,10 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 
+    public int GetCurrentHealth() {
+        return currentHealth;
+    }
+
 	void Death(){
 		isDead = true;
 		anim.SetTrigger ("Die");
